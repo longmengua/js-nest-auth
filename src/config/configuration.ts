@@ -4,7 +4,11 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const Config = {
+<<<<<<< HEAD
   port: parseInt(process.env?.PORT ?? '3000', 10),
+=======
+  port: parseInt(process.env?.PORT, 10),
+>>>>>>> dev
   google: {
     id: process.env?.GOOGLE_ID,
     secret: process.env?.GOOGLE_SECRET,
