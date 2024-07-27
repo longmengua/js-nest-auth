@@ -8,7 +8,7 @@ export class AppleStrategy extends PassportStrategy(Strategy, 'apple') {
   constructor() {
     super({
       clientID: Config.apple.clientID,
-      teamID: Config.apple.teamId,
+      teamID: Config.apple.teamID,
       keyID: Config.apple.keyID,
       key: Config.apple.key,
       callbackURL: Config.apple.callbackURL,

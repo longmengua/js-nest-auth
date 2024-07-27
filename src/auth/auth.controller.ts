@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { Controller, Get, Req, UseGuards, Post } from '@nestjs/common';
-=======
->>>>>>> dev
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import {
