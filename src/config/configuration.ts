@@ -11,10 +11,18 @@ const Config = {
     callbackURL: process.env?.GOOGLE_CALLBACK_URL,
   },
   apple: {
+<<<<<<< HEAD
     clientID: process.env?.APPLE_CLIENT_ID,
     teamId: process.env?.APPLE_TEAM_ID,
     keyID: process.env?.APPLE_KEY_ID,
     key: process.env?.APPLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+=======
+    authorizeURL: 'https://appleid.apple.com/auth/authorize',
+    clientID: process.env?.APPLE_CLIENT_ID,
+    teamID: process.env?.APPLE_TEAM_ID,
+    keyID: process.env?.APPLE_KEY_ID,
+    key: process.env?.APPLE_PRIVATE_KEY,
+>>>>>>> dev
     callbackURL: process.env?.APPLE_CALLBACK_URL,
   },
 };

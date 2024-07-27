@@ -1,8 +1,24 @@
+<<<<<<< HEAD
 import { Controller, Get, Req, UseGuards, Post } from '@nestjs/common';
+=======
+>>>>>>> dev
 import { AuthGuard } from '@nestjs/passport';
+import { AuthService } from './auth.service';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Req,
+  Post,
+  Body,
+  Res,
+} from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller('auth')
 export class AuthController {
+  constructor(private readonly service: AuthService) {}
+
   @Get('google')
   @UseGuards(AuthGuard('google'))
   async googleLogin() {
@@ -12,20 +28,17 @@ export class AuthController {
   @Get('google/callback')
   @UseGuards(AuthGuard('google'))
   async googleCallback(@Req() req: any) {
-    // This route will handle the Google callback after successful authentication
     return req.user;
   }
 
   @Get('apple')
-  @UseGuards(AuthGuard('apple'))
-  async appleLogin() {
-    // This route will initiate the Apple login process
+  async appleLogin(@Res() res: Response) {
+    const url = await this.service.getAppleAuthorizeURL();
+    res.redirect(url);
   }
 
   @Post('apple/callback')
-  // @UseGuards(AuthGuard('apple'))
-  async appleCallback(@Req() req: any) {
-    // This route will handle the Apple callback after successful authentication
-    return req.user;
+  public async appleCallback(@Body() payload: any) {
+    return this.service.verifyAppleUser(payload);
   }
 }
