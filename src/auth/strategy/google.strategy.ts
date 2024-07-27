@@ -7,9 +7,9 @@ import { Config } from 'src/config/configuration';
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   constructor() {
     super({
-      clientID: Config.google.id,
-      clientSecret: Config.google.secret,
-      callbackURL: Config.google.callBack,
+      clientID: Config.google.clientID,
+      clientSecret: Config.google.clientSecret,
+      callbackURL: Config.google.callbackURL,
       scope: ['profile', 'email'],
     });
   }

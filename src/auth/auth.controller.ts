@@ -1,4 +1,4 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Req, UseGuards, Post } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
@@ -13,6 +13,19 @@ export class AuthController {
   @UseGuards(AuthGuard('google'))
   async googleCallback(@Req() req: any) {
     // This route will handle the Google callback after successful authentication
+    return req.user;
+  }
+
+  @Get('apple')
+  @UseGuards(AuthGuard('apple'))
+  async appleLogin() {
+    // This route will initiate the Apple login process
+  }
+
+  @Post('apple/callback')
+  // @UseGuards(AuthGuard('apple'))
+  async appleCallback(@Req() req: any) {
+    // This route will handle the Apple callback after successful authentication
     return req.user;
   }
 }

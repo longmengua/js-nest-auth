@@ -6,9 +6,16 @@ dotenv.config();
 const Config = {
   port: parseInt(process.env?.PORT ?? '3000', 10),
   google: {
-    id: process.env?.GOOGLE_ID,
-    secret: process.env?.GOOGLE_SECRET,
-    callBack: process.env?.GOOGLE_CALLBACK_URL,
+    clientID: process.env?.GOOGLE_ID,
+    clientSecret: process.env?.GOOGLE_SECRET,
+    callbackURL: process.env?.GOOGLE_CALLBACK_URL,
+  },
+  apple: {
+    clientID: process.env?.APPLE_CLIENT_ID,
+    teamId: process.env?.APPLE_TEAM_ID,
+    keyID: process.env?.APPLE_KEY_ID,
+    key: process.env?.APPLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    callbackURL: process.env?.APPLE_CALLBACK_URL,
   },
 };
 
