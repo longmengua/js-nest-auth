@@ -14,7 +14,7 @@ export class AuthService {
       `&client_id=${Config.apple.clientID}` +
       `&redirect_uri=${Config.apple.callbackURL}` +
       `&state=${generateShortUUID()}` +
-      `&scope=name%20email`;
+      `&scope=name email`;
     return redirectUrl;
   }
 
