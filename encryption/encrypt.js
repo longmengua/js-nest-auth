@@ -14,12 +14,14 @@ const encrypt = (buffer) => {
 };
 
 const inputFile = '.env';
-const outputFile = '.env.enc';
+const outputFile = './encryption/.env.enc';
+const keyPath = './encryption/key.bin';
+const ivPath = './encryption/iv.bin';
 const data = fs.readFileSync(inputFile);
 const encryptedData = encrypt(data);
 
 fs.writeFileSync(outputFile, encryptedData);
-fs.writeFileSync('key.bin', key);
-fs.writeFileSync('iv.bin', iv);
+fs.writeFileSync(keyPath, key);
+fs.writeFileSync(ivPath, iv);
 
 console.log('Encryption complete');

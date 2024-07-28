@@ -5,9 +5,9 @@ const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
 
 // Paths to the files
-const keyPath = 'key.bin';
-const ivPath = 'iv.bin';
-const encryptedFilePath = '.env.enc';
+const keyPath = './encryption/key.bin';
+const ivPath = './encryption/iv.bin';
+const encryptedFilePath = './encryption/.env.enc';
 const decryptedFilePath = '.env';
 
 // Read the key and IV
